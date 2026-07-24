@@ -1,6 +1,6 @@
 # 2026teashop
 
-班級春水堂飲料點餐網站。網站網址：部署 GitHub Pages 後請填入此處。
+班級春水堂飲料點餐網站。網站網址：[https://wiston13.github.io/2026teashop/](https://wiston13.github.io/2026teashop/)
 
 ## Google Sheet 與 Apps Script 設定
 
