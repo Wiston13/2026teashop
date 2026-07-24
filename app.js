@@ -1,4 +1,4 @@
-const SCRIPT_URL = ""; // Paste your deployed Apps Script web-app URL here.
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybNBSmuVqFY75oMFynJSUwjCa2L5qFOGDy7JDf_oy6jEr6nsNuDtprflW34yx5WJ10/exec";
 
 const drinks = [
   { category: "珍珠奶茶", name: "珍珠奶茶", prices: { "冰 S": 100, "冰 M": 190, "熱 S": 115, "熱 M": 220 } },

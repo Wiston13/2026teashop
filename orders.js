@@ -1,4 +1,4 @@
-const SCRIPT_URL = ""; // Paste the same Apps Script web-app URL used in app.js.
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybNBSmuVqFY75oMFynJSUwjCa2L5qFOGDy7JDf_oy6jEr6nsNuDtprflW34yx5WJ10/exec";
 const body = document.getElementById("orders-body"), status = document.getElementById("orders-status");
 function esc(value){const d=document.createElement("div");d.textContent=value ?? "";return d.innerHTML;}
 function render(result){if(!result.ok)throw new Error();const orders=result.orders||[];body.innerHTML=orders.map(o=>`<tr><td>${esc(o.time)}</td><td>${esc(o.name)}</td><td>${esc(o.drink)}</td><td>${esc(o.temperature)}飲／${esc(o.size)}杯</td><td>${esc(o.sugar)}／${esc(o.ice)}</td><td>${esc(o.note)}</td><td>$${esc(o.price)}</td></tr>`).join("");status.textContent=orders.length?`共有 ${orders.length} 筆訂單。`:"目前還沒有訂單。";}
