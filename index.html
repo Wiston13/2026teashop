@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>春水堂｜班級飲料點餐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="春水堂班級飲料點餐首頁">春水堂 <span>人文茶館</span></a>
+      <nav><a class="active" href="index.html">我要點餐</a><a href="orders.html">目前訂單</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">CLASS TEA ORDER</p>
+        <h1>今天，想來一杯什麼？</h1>
+        <p>請填寫姓名與飲品，送出前可確認即時計算的總價。</p>
+      </section>
+
+      <section class="menu-section panel" aria-labelledby="menu-title">
+        <div class="section-heading"><p class="eyebrow">MENU</p><h2 id="menu-title">春水堂菜單</h2></div>
+        <img class="menu-image" src="menu.jpg" alt="春水堂完整菜單" />
+      </section>
+
+      <section class="order-grid">
+        <section class="panel form-panel" aria-labelledby="form-title">
+          <div class="section-heading"><p class="eyebrow">ORDER FORM</p><h2 id="form-title">填寫你的飲料</h2></div>
+          <form id="order-form">
+            <label>姓名<input id="name" name="name" type="text" placeholder="例如：王小明" required maxlength="40" /></label>
+            <label>飲品類別<select id="category" name="category" required></select></label>
+            <label>飲品<select id="drink" name="drink" required></select></label>
+            <div class="form-row">
+              <label>冰／熱<select id="temperature" name="temperature" required></select></label>
+              <label>尺寸<select id="size" name="size" required></select></label>
+            </div>
+            <div class="form-row">
+              <label>甜度<select id="sugar" name="sugar"><option>正常甜</option><option>少糖</option><option>半糖</option><option>微糖</option><option>一分糖</option><option>無糖</option></select></label>
+              <label>冰量<select id="ice" name="ice"><option>正常冰</option><option>少冰</option><option>微冰</option><option>去冰</option><option>常溫</option><option>熱</option></select></label>
+            </div>
+            <label>備註（選填）<textarea id="note" name="note" rows="3" placeholder="例如：吸管、過敏提醒等"></textarea></label>
+            <button id="submit-button" type="submit">送出訂單</button>
+            <p id="form-message" class="form-message" role="status"></p>
+          </form>
+        </section>
+
+        <aside class="panel price-panel" aria-live="polite">
+          <p class="eyebrow">YOUR ORDER</p>
+          <h2>價格確認</h2>
+          <div class="receipt-line"><span>飲品</span><strong id="summary-drink">請選擇飲品</strong></div>
+          <div class="receipt-line"><span>規格</span><strong id="summary-spec">—</strong></div>
+          <div class="total"><span>合計</span><strong id="total-price">$0</strong></div>
+          <p class="price-note">送出後，訂單與價格會一同寫入班級的 Google Sheet。</p>
+        </aside>
+      </section>
+    </main>
+    <footer>春水堂班級點餐 · 請於送出前再次確認品項與價格</footer>
+    <script src="app.js"></script>
+  </body>
+</html>

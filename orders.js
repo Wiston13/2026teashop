@@ -1,0 +1,6 @@
+const SCRIPT_URL = ""; // Paste the same Apps Script web-app URL used in app.js.
+const body = document.getElementById("orders-body"), status = document.getElementById("orders-status");
+function esc(value){const d=document.createElement("div");d.textContent=value ?? "";return d.innerHTML;}
+function render(result){if(!result.ok)throw new Error();const orders=result.orders||[];body.innerHTML=orders.map(o=>`<tr><td>${esc(o.time)}</td><td>${esc(o.name)}</td><td>${esc(o.drink)}</td><td>${esc(o.temperature)}飲／${esc(o.size)}杯</td><td>${esc(o.sugar)}／${esc(o.ice)}</td><td>${esc(o.note)}</td><td>$${esc(o.price)}</td></tr>`).join("");status.textContent=orders.length?`共有 ${orders.length} 筆訂單。`:"目前還沒有訂單。";}
+function loadOrders(){if(!SCRIPT_URL){status.textContent="尚未設定 Google Apps Script 網址，請依 README 完成部署。";return;}const callback="teaShopOrders";window[callback]=(result)=>{try{render(result)}catch{status.textContent="無法讀取訂單。";}finally{delete window[callback];script.remove();}};const script=document.createElement("script");script.src=`${SCRIPT_URL}?callback=${callback}`;script.onerror=()=>{status.textContent="無法讀取訂單，請檢查 Apps Script 部署網址與權限。";};document.head.appendChild(script);}
+loadOrders();
